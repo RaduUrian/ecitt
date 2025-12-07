@@ -1,0 +1,37 @@
+tester,testName,year,mth,day,hour,min,sec,partNo,partRef,age,gender,trialNo,trialType,trialVar,accu,dotPr,touchTime,respTime,trialTime,animShown,prpt location,validity_basedonRT,reason invalid,terminated early?,reason terminated,held back?,override software,Reason overwritten,retain RT as >5000ms,notes,respTime,median time inh.,med. Time prpt,trialVar,accu,accu prpt,accu inh
+alexandra,24m2h,2024,6,22,19,41,18,2552,104,21,female,1,prr,,1,0,7872,7872,7872,elephant2,right,1,none,none,none,none,,,0,none,7872,,,,1,,
+alexandra,24m2h,2024,6,22,19,41,32,2552,104,21,female,1,prr,,1,0,8331,8331,8331,flower,,1,,,,,,,0,,8331,,,,1,,
+alexandra,24m2h,2024,6,22,19,41,55,2552,104,21,female,1,tpr,prpt,1,0,2817,2817,2817,bus,,1,,,,,,,1,,2817,,,prpt,0,,
+alexandra,24m2h,2024,6,22,19,42,2,2552,104,21,female,2,tpr,prpt,1,0,1780,1780,1780,elephant,,1,,,,,,,1,,1780,,,prpt,0,,
+alexandra,24m2h,2024,6,22,19,42,8,2552,104,21,female,3,tpr,prpt,1,0,1866,2147,2147,owl,,1,,,,,,,1,,2147,,2147,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,42,14,2552,104,21,female,4,tpr,prpt,1,0,4231,4231,4231,elephant,,1,,,,,,,1,,4231,,4231,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,42,22,2552,104,21,female,5,tpr,prpt,1,0,3839,3839,3839,bus,,1,,,,,,,1,,3839,,,prpt,0,,
+alexandra,24m2h,2024,6,22,19,42,30,2552,104,21,female,6,tpr,inhb,0,0,3674,3674,3674,elephant2,,1,,,,,,,1,,3674,,,inhb,0,,
+alexandra,24m2h,2024,6,22,19,42,44,2552,104,21,female,7,tpr,prpt,1,0,4342,4342,4342,apple,,1,,,,,,,1,,4342,,4342,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,42,52,2552,104,21,female,8,tpr,prpt,1,0,5113,5113,5113,elephant2,,1,,,,,,,0,,5113,,,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,43,2,2552,104,21,female,9,tpr,prpt,1,0,4683,4683,4683,elephant2,,1,,,,,,,1,,4683,,4683,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,43,10,2552,104,21,female,10,tpr,prpt,1,0,3095,3095,3095,apple,,1,,,,,,,1,,3095,,3095,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,43,18,2552,104,21,female,11,tpr,prpt,1,0,3672,3672,3672,flower,,1,,,,,y,c,1,,3672,,,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,43,26,2552,104,21,female,12,tpr,inhb,1,0,4397,4397,4397,flower,,1,,,,,,,1,,4397,4397,,inhb,1,,1
+alexandra,24m2h,2024,6,22,19,43,34,2552,104,21,female,13,tpr,inhb,1,0,2220,2220,2220,apple,,1,,,,,,,1,,2220,2220,,inhb,1,,1
+alexandra,24m2h,2024,6,22,19,43,41,2552,104,21,female,14,tpr,prpt,1,0,3321,3321,3321,elephant,,1,,,,,,,1,,3321,,3321,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,43,48,2552,104,21,female,15,tpr,prpt,1,0,5714,6239,6239,elephant,,1,,,,,,,0,,6239,,,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,43,59,2552,104,21,female,16,tpr,prpt,1,0,5448,5448,5448,owl,,1,,,,,,,0,,5448,,,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,44,8,2552,104,21,female,17,tpr,prpt,1,0,4911,6254,6254,owl,,1,,,,,,,0,,6254,,,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,44,18,2552,104,21,female,18,tpr,prpt,1,0,3057,3058,3058,elephant4,,1,,,,,,,1,,3058,,3058,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,44,26,2552,104,21,female,19,tpr,inhb,1,0,3955,3955,3955,elephant2,,1,,,,,,,1,,3955,3955,,inhb,1,,1
+alexandra,24m2h,2024,6,22,19,44,34,2552,104,21,female,20,tpr,prpt,1,0,3467,3467,3467,bus,,1,,,,,,,1,,3467,,3497,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,44,41,2552,104,21,female,21,tpr,inhb,1,0,2992,3005,3005,flower,,1,,,,,,,1,,3005,3005,,inhb,1,,1
+alexandra,24m2h,2024,6,22,19,44,49,2552,104,21,female,22,tpr,prpt,1,0,4825,4825,4825,elephant4,,1,,,,,,,1,,4825,,4825,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,44,58,2552,104,21,female,23,tpr,prpt,1,0,3605,3605,3605,elephant4,,1,,,,,,,1,,3605,,3605,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,45,5,2552,104,21,female,24,tpr,inhb,1,0,3050,3365,3365,apple,,1,,,,,,,1,,3365,3365,,inhb,1,,1
+alexandra,24m2h,2024,6,22,19,45,13,2552,104,21,female,25,tpr,inhb,1,0,1555,2130,2130,apple,,1,,,,,,,1,,2130,2130,,inhb,1,,1
+alexandra,24m2h,2024,6,22,19,45,19,2552,104,21,female,26,tpr,prpt,1,0,3743,3957,3957,owl,,1,,,,,,,1,,3957,,3957,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,45,27,2552,104,21,female,27,tpr,prpt,1,0,3634,3635,3635,owl,,1,,,,,,,1,,3635,,3635,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,45,35,2552,104,21,female,28,tpr,prpt,1,0,5046,5046,5046,bus,,1,,,,,,,0,,5046,,,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,45,44,2552,104,21,female,29,tpr,inhb,1,0,2112,2576,2576,owl,,1,,,,,,,1,,2576,2576,,inhb,1,,1
+alexandra,24m2h,2024,6,22,19,45,51,2552,104,21,female,30,tpr,prpt,1,0,2557,2557,2557,flower,,1,,,,,,,1,,2557,,,prpt,0,,
+alexandra,24m2h,2024,6,22,19,45,57,2552,104,21,female,31,tpr,prpt,1,0,3781,4615,4615,apple,,1,,,,,,,1,,4615,,4617,prpt,1,1,
+alexandra,24m2h,2024,6,22,19,46,6,2552,104,21,female,32,tpr,prpt,1,0,862,1987,1987,bus,,1,,,,,,,1,,1987,,1987,prpt,1,1,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3005,3620,,,20 out of 24,7 out of 8
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.8333,0.875

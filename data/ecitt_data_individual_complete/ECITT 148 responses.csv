@@ -1,0 +1,3 @@
+testName,year,mth,day,partNo,partRef,age,trialType,trialVariant,avgDotPressed,avgAccuracy,noOfResps
+24m2h,2024,11,30,2798,148,18,tpr,inhb,0.0000,1.0000,8
+24m2h,2024,11,30,2798,148,18,tpr,prpt,0.0000,0.4167,24
