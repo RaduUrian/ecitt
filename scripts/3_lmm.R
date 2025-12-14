@@ -209,14 +209,6 @@ avg_predictions(
   re.form = NA
 )
 
-avg_differences(
-  rt_main_log_trans,
-  variables = "trialNo",
-  transform = "exp"
-)
-
-exp(-0.00494)
-
 ##########################################################
 # GLMM for RT (binary nondomlang)
 ##########################################################
