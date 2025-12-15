@@ -63,13 +63,13 @@ ecitt_data_acc <- read.csv(here("data", "ecitt_data_acc_final.csv"))
 
 ecitt_data_rt <- read.csv(here("data", "ecitt_data_rt_final.csv"))
 
-power_FLP <- mixedpower(model = rt_demog, data = ecitt_data_rt_cc,
-                        fixed_effects = c("age.y", "gender.y", "nondomlanguagepercent", "income", "trialNo", "trialVar"),
-                        simvar = "id", steps = c(10, 20, 30, 40, 50, 60),
-                        critical_value = 2, n_sim = 10)
-
-multiplotPower(power_FLP,
-               filename = here("output", "property_power_original_sesoi.png"))
+# power_FLP <- mixedpower(model = rt_demog, data = ecitt_data_rt_cc,
+#                         fixed_effects = c("age.y", "gender.y", "nondomlanguagepercent", "income", "trialNo", "trialVar"),
+#                         simvar = "id", steps = c(10, 20, 30, 40, 50, 60),
+#                         critical_value = 2, n_sim = 10)
+# 
+# multiplotPower(power_FLP,
+#                filename = here("output", "property_power_original_sesoi.png"))
 
 ########### wrangling ######################
 
@@ -384,8 +384,152 @@ grid()
 
 dev.off()
 
+####################### trial number
 
+# Define effect sizes: -1%, -2%, -3%, -4%, -5% change per unit age
+targets_trialNo <- log(seq(.999, .989, by = -.001))  # Test -1% to -10% in 1% increments
 
+# Run power simulations across different effect sizes
+res_rt_trialNo <- do.call(
+  rbind,
+  lapply(targets_trialNo, function(b) {
+    
+    # Copy model (avoid side effects)
+    mod_b <- rt_demog
+    mod_b@beta[match("trialNo", names(fixef(rt_demog)))] <- b
+    
+    # Run power simulation
+    ps <- powerSim(
+      mod_b,
+      fixed("trialNo", "t"),
+      nsim = 200
+    )
+    
+    # Extract power summary
+    ps_summary <- summary(ps)
+    
+    # Extract results - powerSim returns percentage values
+    data.frame(
+      beta  = b,
+      mult  = exp(b),
+      pct   = (exp(b) - 1) * 100,
+      power = ps_summary$mean,     # Convert percentage to proportion
+      lower = ps_summary$lower,
+      upper = ps_summary$upper
+    )
+  })
+)
+
+# View results
+print(res_rt_trialNo)
+
+png(here("output","power_curve_trialNo_rt.png"), width = 1000, height = 800)
+
+# Create power curve plot
+plot(
+  -res_rt_trialNo$pct, res_rt_trialNo$power,
+  pch = 16,
+  cex = 1.5,
+  ylim = c(0, 1),
+  xlim = c(0, max(-res_rt_trialNo$pct) * 1.1),
+  xlab = "% faster RT per additional trial",
+  ylab = "Power",
+  main = "Sensitivity Analysis: trial number effect on RT"
+)
+
+# Add confidence intervals
+segments(-res_rt_trialNo$pct, res_rt_trialNo$lower, 
+         -res_rt_trialNo$pct, res_rt_trialNo$upper,
+         lwd = 2)
+
+# Add reference line for 80% power
+abline(h = 0.80, lty = 2, col = "red", lwd = 2)
+grid()
+
+# Optional: Add power values as text labels
+text(-res_rt_trialNo$pct, res_rt_trialNo$power, 
+     labels = paste0(round(res_rt_trialNo$power * 100, 1), "%"),
+     pos = 3, cex = 0.8, offset = 0.5)
+
+dev.off()
+
+####################### trial type
+
+# First, check the actual coefficient name in your model
+fixef(rt_demog)
+# You should see something like "trialVarprpt" (not just "trialVar")
+
+# Check the levels
+levels(as.factor(ecitt_data_rt_cc$trialVar))
+# Based on your fixef output earlier, it looks like 'inhb' is reference and 'prpt' is the contrast
+
+# Define effect sizes: -1% to -10% change
+targets_trialVar <- log(seq(.99, .89, by = -.01))
+
+# Run power simulations across different effect sizes
+res_rt_trialVar <- do.call(
+  rbind,
+  lapply(targets_trialVar, function(b) {
+    
+    # Copy model (avoid side effects)
+    mod_b <- rt_demog
+    # Use the EXACT coefficient name from fixef(rt_demog)
+    mod_b@beta[match("trialVarprpt", names(fixef(rt_demog)))] <- b
+    
+    # Run power simulation
+    ps <- powerSim(
+      mod_b,
+      fixed("trialVarprpt", "t"),  # Use exact coefficient name
+      nsim = 200  # Increased from 10 for more stable estimates
+    )
+    
+    # Extract power summary
+    ps_summary <- summary(ps)
+    
+    # Extract results
+    data.frame(
+      beta  = b,
+      mult  = exp(b),
+      pct   = (exp(b) - 1) * 100,
+      power = ps_summary$mean,
+      lower = ps_summary$lower,
+      upper = ps_summary$upper
+    )
+  })
+)
+
+# View results
+print(res_rt_trialVar)
+
+# Create power curve plot
+png(here("output","power_curve_trialVar_rt.png"), width = 1000, height = 800)
+
+plot(
+  -res_rt_trialVar$pct, res_rt_trialVar$power,
+  pch = 16,
+  cex = 1.5,
+  ylim = c(0, 1),
+  xlim = c(0, max(-res_rt_trialVar$pct) * 1.1),
+  xlab = "% faster RT for prepotent vs. inhibitory trials",
+  ylab = "Power",
+  main = "Sensitivity Analysis: Trial Type Effect on RT"
+)
+
+# Add confidence intervals
+segments(-res_rt_trialVar$pct, res_rt_trialVar$lower, 
+         -res_rt_trialVar$pct, res_rt_trialVar$upper,
+         lwd = 2)
+
+# Add reference line for 80% power
+abline(h = 0.80, lty = 2, col = "red", lwd = 2)
+grid()
+
+# Add power values as text labels
+text(-res_rt_trialVar$pct, res_rt_trialVar$power, 
+     labels = paste0(round(res_rt_trialVar$power * 100, 1), "%"),
+     pos = 3, cex = 0.8, offset = 0.5)
+
+dev.off()
 
 
 
