@@ -5,3 +5,5 @@
 ECITT Coding Protocol 2.0.docx
 ECITT manuscript comments oct. 16 (1).docx
 ECITT Nov. 16.docx
+output/*
+!output/.gitkeep
